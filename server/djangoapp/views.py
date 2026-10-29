@@ -8,6 +8,10 @@
 # from django.contrib import messages
 # from datetime import datetime
 
+from django.contrib.auth.models import User
+from django.db import IntegrityError
+from django.views.decorators.http import require_POST
+
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
 import logging
@@ -38,14 +42,63 @@ def login_user(request):
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
 
-# Create a `logout_request` view to handle sign out request
-# def logout_request(request):
-# ...
+from django.contrib.auth import logout
 
-# Create a `registration` view to handle sign up request
-# @csrf_exempt
-# def registration(request):
-# ...
+def logout_request(request):
+    logout(request)
+    return JsonResponse({"userName": ""})
+
+# Create a registration view to handle sign up requests
+@csrf_exempt  # Lab compatibility only; use CSRF protection in production
+@require_POST
+def registration(request):
+    try:
+        data = json.loads(request.body)
+
+        username = data.get("userName", "").strip()
+        password = data.get("password", "")
+        first_name = data.get("firstName", "").strip()
+        last_name = data.get("lastName", "").strip()
+        email = data.get("email", "").strip()
+
+        if not username or not password:
+            return JsonResponse(
+                {"status": "Failed", "message": "Username and password are required"},
+                status=400
+            )
+
+        if User.objects.filter(username=username).exists():
+            return JsonResponse(
+                {"status": "Failed", "message": "Username already exists"},
+                status=409
+            )
+
+        user = User.objects.create_user(
+            username=username,
+            password=password,
+            first_name=first_name,
+            last_name=last_name,
+            email=email
+        )
+
+        login(request, user)
+
+        return JsonResponse({
+            "userName": username,
+            "status": "Authenticated"
+        })
+
+    except (json.JSONDecodeError, AttributeError):
+        return JsonResponse(
+            {"status": "Failed", "message": "Invalid JSON request"},
+            status=400
+        )
+
+    except IntegrityError:
+        return JsonResponse(
+            {"status": "Failed", "message": "Username already exists"},
+            status=409
+        )
 
 # # Update the `get_dealerships` view to render the index page with
 # a list of dealerships
