@@ -1,68 +1,314 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Link the style sheet here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Best Cars Dealership</title>
+
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #172b4d;
+        }
+
+        .navbar-brand,
+        .navbar .nav-link {
+            color: white !important;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: #ffc107 !important;
+        }
+
+        .about-header {
+            background: linear-gradient(135deg, #172b4d, #2458a6);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .about-header h1 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .about-header p {
+            max-width: 850px;
+            margin: 0 auto 15px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .team-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .team-card .card-body {
+            padding: 25px;
+        }
+
+        .team-card h5 {
+            color: #2458a6;
+        }
+
+        .section-title {
+            color: #172b4d;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #172b4d;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
-        </div>
-      </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
-        </div>
-      </div>
+<body>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="/">
+                Best Cars
+            </a>
 
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarMenu"
+                    aria-controls="navbarMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="/about/">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Header -->
+    <div class="about-header">
+        <h1>About Us</h1>
+
+        <p>
+            Welcome to Best Cars dealership, home to the best
+            cars in North America. We specialize in selling
+            domestic and imported vehicles at reasonable prices.
+        </p>
+
+        <p>
+            Our mission is to make car buying simple,
+            transparent, and enjoyable. We are committed
+            to delivering quality vehicles, competitive pricing,
+            and outstanding customer service.
+        </p>
+    </div>
+
+    <!-- About Company -->
+    <section class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4">
+                <h2 class="section-title">Who We Are</h2>
+
+                <p>
+                    Best Cars is a nationwide automobile dealership
+                    dedicated to helping customers find vehicles
+                    that match their lifestyle and budget.
+                </p>
+
+                <p>
+                    Our experienced team offers personalized
+                    assistance, reliable vehicle information,
+                    and transparent customer reviews.
+                </p>
+
+                <p>
+                    Whether you are purchasing your first car
+                    or upgrading your current vehicle,
+                    Best Cars is here to support you.
+                </p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <img src="/static/car_dealership.jpg"
+                     class="img-fluid rounded shadow"
+                     alt="Best Cars Dealership">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="container my-5">
+        <h2 class="text-center section-title mb-3">
+            Meet Our Team
+        </h2>
+
+        <p class="text-center text-muted mb-5">
+            Our dedicated professionals are committed
+            to providing exceptional service.
+        </p>
+
+        <div class="row">
+
+            <!-- James -->
+            <div class="col-md-4 mb-4">
+                <div class="card team-card h-100">
+                    <img src="/static/james.jpg"
+                         class="card-img-top"
+                         alt="James Anderson">
+
+                    <div class="card-body">
+                        <h4>James Anderson</h4>
+                        <h5>General Manager</h5>
+
+                        <p>
+                            James oversees dealership operations
+                            and ensures that every customer
+                            receives professional service
+                            and a positive experience.
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            <a href="mailto:james@bestcars.example">
+                                james@bestcars.example
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sarah -->
+            <div class="col-md-4 mb-4">
+                <div class="card team-card h-100">
+                    <img src="/static/sarah.jpg"
+                         class="card-img-top"
+                         alt="Sarah Mitchell">
+
+                    <div class="card-body">
+                        <h4>Sarah Mitchell</h4>
+                        <h5>Sales Director</h5>
+
+                        <p>
+                            Sarah leads our sales team
+                            and helps customers discover
+                            quality vehicles that suit
+                            their needs and budget.
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            <a href="mailto:sarah@bestcars.example">
+                                sarah@bestcars.example
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Michael -->
+            <div class="col-md-4 mb-4">
+                <div class="card team-card h-100">
+                    <img src="/static/michael.jpg"
+                         class="card-img-top"
+                         alt="Michael Roberts">
+
+                    <div class="card-body">
+                        <h4>Michael Roberts</h4>
+                        <h5>Customer Relations Manager</h5>
+
+                        <p>
+                            Michael manages customer feedback,
+                            resolves customer concerns,
+                            and works to maintain
+                            long-term customer satisfaction.
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            <a href="mailto:michael@bestcars.example">
+                                michael@bestcars.example
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="container my-5">
+        <h2 class="text-center section-title mb-4">
+            Why Choose Best Cars?
+        </h2>
+
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <h4>Quality Vehicles</h4>
+                <p>Reliable domestic and imported cars.</p>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <h4>Transparent Pricing</h4>
+                <p>Competitive prices and clear information.</p>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <h4>Customer Satisfaction</h4>
+                <p>Friendly service and trusted customer reviews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="mb-1">
+            &copy; 2026 Best Cars Dealership.
+            All Rights Reserved.
+        </p>
+
+        <p class="mb-0">
+            Your Trusted Partner in Car Buying.
+        </p>
+    </footer>
+
+</body>
 </html>
