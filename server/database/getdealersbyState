@@ -1,0 +1,12 @@
+curl -i http://localhost:3030/fetchDealers/Kansas
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 222
+ETag: W/"de-gfBi2t2R1n3V9SwTd1wbPT6zbLI"
+Date: Thu, 29 Oct 2026 16:57:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+[{"_id":"6ae378cd9871149a6c742982","id":8,"city":"Topeka","state":"Kansas","address":"288 Larry Place","zip":"66642","lat":"39.0429","long":"-95.7697","short_name":"Bytecard","full_name":"Bytecard Car Dealership","__v":0}]

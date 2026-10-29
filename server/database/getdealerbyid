@@ -1,0 +1,12 @@
+curl -i http://localhost:3030/fetchDealer/3
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 230
+ETag: W/"e6-LV+4n3L7G5lNC7hydiGYV1y1BoM"
+Date: Thu, 29 Oct 2026 16:55:54 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+[{"_id":"6ae378cd9871149a6c74297d","id":3,"city":"Birmingham","state":"Alabama","address":"9477 Twin Pines Center","zip":"35285","lat":"33.5446","long":"-86.9292","short_name":"Sub-Ex","full_name":"Sub-Ex Car Dealership","__v":0}]
