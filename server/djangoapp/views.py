@@ -8,6 +8,7 @@
 # from django.contrib import messages
 # from datetime import datetime
 
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.views.decorators.http import require_POST
@@ -44,13 +45,14 @@ def login_user(request):
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
 
-from django.contrib.auth import logout
 
 def logout_request(request):
     logout(request)
     return JsonResponse({"userName": ""})
 
 # Create a registration view to handle sign up requests
+
+
 @csrf_exempt  # Lab compatibility only; use CSRF protection in production
 @require_POST
 def registration(request):
@@ -65,7 +67,10 @@ def registration(request):
 
         if not username or not password:
             return JsonResponse(
-                {"status": "Failed", "message": "Username and password are required"},
+                {
+                    "status": "Failed",
+                    "message": "Username and password are required"
+                },
                 status=400
             )
 

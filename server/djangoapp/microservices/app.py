@@ -4,7 +4,6 @@ import nltk
 from pathlib import Path
 
 nltk.data.path.insert(0, str(Path(__file__).resolve().parent))
-import json
 app = Flask("Sentiment Analyzer")
 
 sia = SentimentIntensityAnalyzer()

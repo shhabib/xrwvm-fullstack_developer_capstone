@@ -12,6 +12,7 @@ sentiment_analyzer_url = os.getenv(
     'sentiment_analyzer_url',
     default="http://localhost:5050/")
 
+
 def get_request(endpoint, **kwargs):
     request_url = backend_url + endpoint
     print(f"GET from {request_url}")
@@ -28,9 +29,11 @@ def get_request(endpoint, **kwargs):
         print(f"Network exception occurred: {err}")
         return None
 
+
 def analyze_review_sentiments(text):
     """Analyze review sentiment using IBM Cloud Code Engine."""
-    request_url = sentiment_analyzer_url.rstrip("/") + "/analyze/" + quote(str(text), safe="")
+    request_url = sentiment_analyzer_url.rstrip(
+        "/") + "/analyze/" + quote(str(text), safe="")
 
     try:
         response = requests.get(request_url, timeout=30)
@@ -39,6 +42,7 @@ def analyze_review_sentiments(text):
     except requests.RequestException as err:
         print(f"Sentiment analysis error: {err}")
         return None
+
 
 def post_review(data_dict):
     """Submit a dealership review to the Express backend."""
