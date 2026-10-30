@@ -19,6 +19,12 @@ urlpatterns = [
             template_name='About.html'),
         name='about'),
 
+    path(
+        'contact/',
+        TemplateView.as_view(
+            template_name='Contact.html'),
+        name='contact'),
+
     # React authentication pages
     path(
         'login/',
