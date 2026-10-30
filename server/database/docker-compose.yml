@@ -10,6 +10,17 @@ services:
     restart: always
     volumes:
       - mongo_data:/data/db
+  mongo-express:
+    image: mongo-express:1.0.2
+    container_name: mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo_db:27017/
+      ME_CONFIG_BASICAUTH_ENABLED: "false"
+    depends_on:
+      - mongo_db
 
   # Node api service
   api:
